@@ -10,7 +10,17 @@ const APIlink = `https://api.harvardartmuseums.org/image?apikey=${apiKEY}`
 
 function Gallery() {
 
-        const [gallery, setGallery] = useState({})
+        const [gallery, setGallery] = useState({
+
+            date: '',
+            imageid: '',
+            copyright: '',
+            caption: '',
+            description: '',
+            imageURL: ''
+
+
+        })
 
         useEffect(() => {
             fetch(APIlink)
@@ -18,9 +28,14 @@ function Gallery() {
             .then(
                 (result) => {
                     console.log(result)
-                    setGallery(
-                      result
-                    )
+                    setGallery({
+                        date: result.records[0].date,
+                        imageid: result.records[0].imageid,
+                        copyright: result.records[0].copyright,
+                        caption: result.records[0].caption,
+                        description: result.records[0].description,
+                        imageURL: result.records[0].baseimageurl
+                    })
                 }
             )
             .catch(error => console.log(error))
@@ -28,12 +43,15 @@ function Gallery() {
 
 
         
-console.log()
+console.log(gallery.imageURL)
 
-
+            
             return (
 
-                <div></div>
+                <div>
+                    <img src={gallery.imageURL} />
+
+                </div>
             )
 
 }
