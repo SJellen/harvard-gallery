@@ -9,7 +9,7 @@ import Gallery from './Gallery'
 function App() {
   return (
     <div className="App">
-      <h1>header</h1>
+      <h1>Harvard Museum Art Gallery</h1>
       <Gallery />
     </div>
   );

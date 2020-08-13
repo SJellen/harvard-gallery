@@ -10,41 +10,32 @@ const apiKEY = process.env.REACT_APP_HARVARD_GALLERY
 
 function Gallery() {
 
-        const [images, setImages] = useState({
-            fileid: '',
-            baseimageurl: ''
-        })
+        const [images, setImages] = useState([])
         
-        const [page, setPage] = useState()
+        const [page, setPage] = useState(0)
 
         const APIlink = `https://api.harvardartmuseums.org/image?apikey=${apiKEY}&page=${page}`
 
-       
-        function fetchImages()  {
-                fetch(APIlink)
+        useEffect(() => {
+                fetchImages()    
+            }, [])
+
+
+
+        const fetchImages = async () => {
+               await fetch(APIlink)
                 .then(res => res.json())
-                .then(
-                    
-                    (data) => data.records.map((image) => {
-                        
-                        setImages({ fileid: image.fileid, baseimageurl: image.baseimageurl})
-                        
-                        
-                        
-                    })) 
-                
+                .then(data => setImages(data.records))
                 .catch(error => console.log(error))
         }       
         
 
-        useEffect(() => {
-               fetchImages()    
-        }, [])
+        
 
         
 
 
-        console.log(images)
+        console.log(images[0])
 
 
                 
@@ -52,15 +43,13 @@ function Gallery() {
            
             return (
 
-                <div>
-                    <h1>{}</h1>
-                    {/* <img /> */}
-                    {/* <img src={images.baseimageurl}/>
-                    {images.map(({ fileid, baseimageurl}) => {
-                        return (
-                            <img src={images.baseimageurl}/>
-                        )
-                    })} */}
+                <div className="gallery">
+                    {images.map(image => (
+                        <div key={image.fileid}>
+                            <img src={image.baseimageurl} alt="art piece" className="gallery-image"/>
+                        </div>
+                    ))}
+                  
                 </div>
             )
 

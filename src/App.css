@@ -1,3 +1,22 @@
 .App {
   text-align: center;
 }
+
+.gallery {
+  width: 80vw;
+  border: 1px solid red;
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  justify-content: space-around;
+}
+
+.gallery-image {
+  width: 200px;
+  height: auto;
+  
+}
+
+
+
