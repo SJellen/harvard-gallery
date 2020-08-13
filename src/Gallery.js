@@ -6,51 +6,61 @@ const apiKEY = process.env.REACT_APP_HARVARD_GALLERY
 
 
 
-const APIlink = `https://api.harvardartmuseums.org/image?apikey=${apiKEY}`
+
 
 function Gallery() {
 
-        const [gallery, setGallery] = useState({
-
-            date: '',
-            imageid: '',
-            copyright: '',
-            caption: '',
-            description: '',
-            imageURL: ''
-
-
+        const [images, setImages] = useState({
+            fileid: '',
+            baseimageurl: ''
         })
+        
+        const [page, setPage] = useState()
+
+        const APIlink = `https://api.harvardartmuseums.org/image?apikey=${apiKEY}&page=${page}`
+
+       
+        function fetchImages()  {
+                fetch(APIlink)
+                .then(res => res.json())
+                .then(
+                    
+                    (data) => data.records.map((image) => {
+                        
+                        setImages({ fileid: image.fileid, baseimageurl: image.baseimageurl})
+                        
+                        
+                        
+                    })) 
+                
+                .catch(error => console.log(error))
+        }       
+        
 
         useEffect(() => {
-            fetch(APIlink)
-            .then(res => res.json())
-            .then(
-                (result) => {
-                    console.log(result)
-                    setGallery({
-                        date: result.records[0].date,
-                        imageid: result.records[0].imageid,
-                        copyright: result.records[0].copyright,
-                        caption: result.records[0].caption,
-                        description: result.records[0].description,
-                        imageURL: result.records[0].baseimageurl
-                    })
-                }
-            )
-            .catch(error => console.log(error))
+               fetchImages()    
         }, [])
 
-
         
-console.log(gallery.imageURL)
 
-            
+
+        console.log(images)
+
+
+                
+
+           
             return (
 
                 <div>
-                    <img src={gallery.imageURL} />
-
+                    <h1>{}</h1>
+                    {/* <img /> */}
+                    {/* <img src={images.baseimageurl}/>
+                    {images.map(({ fileid, baseimageurl}) => {
+                        return (
+                            <img src={images.baseimageurl}/>
+                        )
+                    })} */}
                 </div>
             )
 
