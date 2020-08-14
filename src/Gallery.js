@@ -16,6 +16,15 @@ function Gallery() {
 
         const APIlink = `https://api.harvardartmuseums.org/image?apikey=${apiKEY}&page=${page}`
 
+        const fetchImages = async () => {
+               await fetch(APIlink)
+                .then(res => res.json())
+                .then(data => setImages(data.records))
+                .catch(error => console.log(error))
+                
+        } 
+
+
         useEffect(() => {
                 
                 
@@ -26,13 +35,7 @@ function Gallery() {
 
 
 
-        const fetchImages = async () => {
-               await fetch(APIlink)
-                .then(res => res.json())
-                .then(data => setImages(data.records))
-                .catch(error => console.log(error))
-                
-        }       
+              
         
 
         
@@ -77,7 +80,7 @@ function Gallery() {
                                 </Button>
                                 }
                                 
-                                <span>Page: {page + 1}/ 37000</span>
+                                <span className="current-page">Page: {page + 1}/ 37000</span>
 
                                 {page >= 36999 ? 
                                     <Button variant="contained" disabled onClick={incrementPage}>
@@ -93,13 +96,10 @@ function Gallery() {
                                 </div>
 
                 <div className="image-box">
-                        {!isLoading ? images.map(image => (
+                        {images.map(image => (
                         <div key={image.fileid}>
                             <img src={image.baseimageurl} alt="art piece" className="gallery-image"/>
                         </div>   
-                    )) : images.map(() => (
-                        
-                        <Skeleton variant="rect" width={175} height={200}/>
                     ))}
                 </div>
 
@@ -114,7 +114,7 @@ function Gallery() {
                                 </Button>
                                 }
                                 
-                                <span>Page: {page + 1}/ 37000</span>
+                                <span className="current-page">Page: {page + 1}/ 37000</span>
 
                                 {page >= 36999 ? 
                                     <Button variant="contained" disabled onClick={incrementPage}>
