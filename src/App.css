@@ -3,19 +3,34 @@
 }
 
 .gallery {
+  
+}
+
+.image-box {
   width: 80vw;
   border: 1px solid red;
   height: auto;
   display: flex;
   flex-wrap: wrap;
-  margin: 0 auto;
+  margin: 4rem auto 0 auto;
   justify-content: space-around;
 }
 
 .gallery-image {
-  width: 200px;
+  width: 175px;
   height: auto;
   
+}
+
+.button-box {
+  border: 1px solid blue;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 250px;
+
+  height: 2rem;
+  margin: 2rem auto 0 auto;
 }
 
 
