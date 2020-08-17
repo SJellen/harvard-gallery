@@ -45,7 +45,8 @@ function Gallery() {
                 setValid(true)
                 setIsLoading(true)
                 fetchImages()
-                setPage(prevPage => prevPage + 1)  
+                setPage(prevPage => prevPage + 1) 
+                
             }        
         }
 
