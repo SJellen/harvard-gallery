@@ -1,0 +1,80 @@
+
+.gallery {
+    margin-bottom: 4rem;
+  }
+  
+  .image-box {
+    width: 80vw;
+    padding: 2rem;
+    background-color: #f4f1ea;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 4rem auto 0 auto;
+    justify-content: space-around;
+  }
+  
+  .gallery-image {
+    width: 175px;
+    height: auto;
+    padding: 5px;
+  }
+  
+  .button-box {
+    background-color: #dbe3e5;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 275px;
+    height: 2rem;
+    margin: 0rem auto 0 auto;
+  }
+  
+  .current-page {
+    margin-top: 7px;
+  }
+  
+  .input-box {
+    width: 145px;
+    height: 20px;
+  }
+  
+  #input-box-top {
+    margin-top: 1rem;
+    text-align: center;
+  }
+  
+  #input-box-bottom {
+    margin-top: 3rem;
+    margin-bottom: .5rem;
+    text-align: center;
+  }
+  
+  .search-icon {
+    background-color: #303F9E;
+    color: white;
+    border-radius: 5px;
+    padding: 1px;
+    position: absolute;
+    margin-left: -1.25rem;
+  }
+  
+  #search-icon-top {
+    margin-top: 1rem;
+    
+  }
+  
+  #search-icon-bottom {
+    margin-top:3rem;
+  }
+  
+  .search-error {
+    color: red;
+    font-size: .85rem;
+  }
+  
+  #search-error-bottom {
+    margin-top: .5rem;
+  }
+  
+  

@@ -1,7 +1,10 @@
 import React, { useState, useEffect} from 'react'
 import Button from '@material-ui/core/Button';
 import Skeleton from '@material-ui/lab/Skeleton';
-
+import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
+import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
+import SearchIcon from '@material-ui/icons/Search';
+import './style/Gallery.css'
 
 const apiKEY = process.env.REACT_APP_HARVARD_GALLERY
 
@@ -10,9 +13,8 @@ function Gallery() {
         const [images, setImages] = useState([])
         const [isLoading, setIsLoading] = useState(true)
         const [page, setPage] = useState(0)
-        const [tempPage, setTempPage] = useState(null)
-        const [pagePlusOne, setPagePlusOne] = useState(page + 1)
-        const [pagePlusTwo, setPagePlusTwo] = useState(page + 2)
+        const [isValid, setValid] = useState(true)
+        const [temp, setTemp] = useState(page)
 
         const APIlink = `https://api.harvardartmuseums.org/image?apikey=${apiKEY}&page=${page}&size=100`
 
@@ -31,92 +33,95 @@ function Gallery() {
         function decrementPage() {
           
             if (page >= 1 ) {
-                
+                setValid(true)
                 setIsLoading(true)
                 fetchImages()
-                setPage(page -1) 
-                 
+                setPage(prevPage => prevPage - 1) 
             }
         }
 
         function incrementPage() {
             if (page <= 3699) {
-                  
+                setValid(true)
                 setIsLoading(true)
                 fetchImages()
-                setPage(page +1)  
-                
+                setPage(prevPage => prevPage + 1)  
             }        
         }
 
 
         
 
-        function handleChange(e) {
-            setTempPage(e.target.value)
-        }
 
-        function handleSubmit(e) {
-            e.preventDefault()  
-            fetchImages()
+        function handleSearch(event) {
+            
+            let newPage = parseInt(event.target.value) -1
+            
+            if (newPage <= 3700) {
+                setValid(true)
+                setPage(newPage)
+            } else {
+                setPage(temp)
+                setValid(false)
+                document.getElementById('input-box-top').value = ''
+                document.getElementById('input-box-bottom').value = ''
+            }
+            
         }
 
         function handleClick() {
-            setPage(tempPage) 
-            setPagePlusOne(tempPage)
-            let plusTwo = tempPage
-            setPagePlusTwo(plusTwo + 2)
+            setTemp(page)
+            fetchImages()
+            document.getElementById('input-box-top').value = ''
+            document.getElementById('input-box-bottom').value = ''
+
         }
 
-
-
-        console.log(page)
-       console.log(tempPage)
-       console.log(page + 2)
-      
-       console.log(pagePlusOne)
-        
-           
+  
             return (
 
                 <div className="gallery">
                 <h2 className="section-title">Havard Art Images</h2>
                 <div className="button-box" id="button-box-top">
-                                {page === 0 ? 
-                                    <Button variant="contained" disabled onClick={decrementPage}>
-                                        {page === 0 ? '' : page === 1 ? page  : page}
-                                </Button> :
-                                <Button variant="contained" color="primary" onClick={decrementPage} >
-                                        {page === 0 ? '' : page === 1 ? page  : page}
-                                </Button>
-                                }
+                    {page === 0 ? 
+                        <Button variant="contained" disabled onClick={decrementPage}>
+                            
+                    </Button> :
+                    <Button variant="contained" color="primary" onClick={decrementPage} >
+                            <ArrowBackIosIcon />
+                    </Button>
+                    }
                                 
                                 
-                                <span className="current-page">Page: {page + 1}/ 3700</span>
+                    <span className="current-page">Page: {page + 1}/ 3700</span>
 
-                                {page >= 3699 ? 
-                                    <Button variant="contained" disabled onClick={incrementPage}>
-                                        {''}
-                                </Button> : 
-                                
-                                <Button variant="contained" color="primary" onClick={incrementPage}>
-                                        {page === 3701 ? '' : page === 3700 ? page + 1 : page + 2}
-                                </Button>
-                                }
-                                </div>
-                                <form >
-                                   <input 
-                                    className="input-box"
-                                    id="input-box-top"
-                                    type="number" 
-                                    min="1"
-                                    max="3700"
-                                    placeholder="Enter page number"
-                                    
-                                /> 
+                    {page >= 3699 ? 
+                        <Button variant="contained" disabled onClick={incrementPage}>
+                            
+                    </Button> : 
+                    
+                    <Button variant="contained" color="primary" onClick={incrementPage}>
+                            <ArrowForwardIosIcon />
+                    </Button>
+                    }
+                    </div>
                                 
                                 
-                                </form>
+               
+                   <input 
+                       className="input-box"
+                       id="input-box-top"
+                       type="number" 
+                       min="1"
+                       max="3700"
+                       placeholder="Enter page number"
+                       onChange={handleSearch}
+                       maxLength='4'
+                       onKeyPress={(e) => e.key === 'Enter' ? handleClick() : null}
+                   />
+                    <SearchIcon className="search-icon" id="search-icon-top"  onClick={handleClick}/>
+                   <p className="search-error" id="search-error-top">{isValid ? '' : "Please enter number under 3700"} </p>
+              
                                 
 
                 <div className="image-box">
@@ -125,55 +130,55 @@ function Gallery() {
                             <img src={image.baseimageurl} alt="art piece" className="gallery-image"/>
                         </div>   
                     )) : images.map((image) => (
+                        
+                        
                         <Skeleton variant="rect" width={175} height={200} key={image.fileid}/>
-                    ))
+                        
+                    )) 
                     
                     }
                 </div>
                    
-                                <form onSubmit={handleSubmit}>
-                                   <input 
-                                    className="input-box"
-                                    id="input-box-bottom"
-                                    type="number" 
-                                    min="1"
-                                    max="3700"
-                                    value={tempPage}
-                                    placeholder="Enter page number"
-                                    onChange={handleChange}
-                                /> 
-                                <button type="submit" value="submit"  onClick={handleClick}>submit</button>
-                                
-                                
-                                </form>
-                                
+                 <input 
+                       className="input-box"
+                       id="input-box-bottom"
+                       type="number" 
+                       min="1"
+                       max="3700"
+                       placeholder="Enter page number"
+                       onChange={handleSearch}
+                       maxLength='4'
+                       onKeyPress={(e) => e.key === 'Enter' ? handleClick() : null}
+                   />
+                    <SearchIcon className="search-icon" id="search-icon-bottom"  onClick={handleClick}/>
+                    <p className="search-error" id="search-error-bottom">{isValid ? '' : "Please enter number under 3700"} </p>       
                                 
                     
 
                 <div className="button-box" id="button-box-bottom">
 
-                                {page === 0 ? 
-                                    <Button variant="contained" disabled onClick={decrementPage}>
-                                        {page === 0 ? '' : page === 1 ? page  : page}
-                                </Button> :
-                                <Button variant="contained" color="primary" onClick={decrementPage} >
-                                        {page === 0 ? '' : page === 1 ? page  : page }
-                                </Button>
-                                }
-                                
-                                <span className="current-page">Page: {page + 1} / 3700</span>
+                    {page === 0 ? 
+                        <Button variant="contained" disabled onClick={decrementPage}>
+                            
+                    </Button> :
+                    <Button variant="contained" color="primary" onClick={decrementPage} >
+                            <ArrowBackIosIcon />
+                    </Button>
+                    }
+                    
+                    <span className="current-page">Page: {page + 1} / 3700</span>
 
-                                {page >= 3699 ? 
-                                    <Button variant="contained" disabled onClick={incrementPage}>
-                                        {''}
-                                </Button> : 
-                                
-                                <Button variant="contained" color="primary" onClick={incrementPage}>
-                                        {page === 3701 ? '' : page === 3700 ? page + 1 : page + 2}
-                                </Button>
-                                }
-                
-                                </div>
+                    {page >= 3699 ? 
+                        <Button variant="contained" disabled onClick={incrementPage}>
+                            
+                    </Button> : 
+                    
+                    <Button variant="contained" color="primary" onClick={incrementPage}>
+                            <ArrowForwardIosIcon />
+                    </Button>
+                    }
+    
+                    </div>
                     
                   
                 
