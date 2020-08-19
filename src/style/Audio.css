@@ -2,70 +2,40 @@
     width: 80vw;
     padding: 2rem;
     background-color: #f4f1ea;
-    height: 4000px;
-   
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
     margin: 4rem auto 4rem auto;
-    
-   
+    /* justify-content: center; */
   }
 
-  .audio-object {
-      width: 400px;
+  
+  .audio-image {
+      width: 500px;
       height: auto;
       margin: 2rem;
+      margin-left: 7.5rem;
       box-shadow: 2px 2px 5px silver;
-
+   
   }
-
-  .object-container {
-     
-     
-  }
-
-  .audio-controls {
-      margin-top: 4rem;
-      
-  }
-
-  .image-container {
-      display: flex;
-      flex-direction: column;
-      width: 400px;
-      height: auto;
-      /* border: 1px solid orange; */
-      margin-left: 10rem;
-  }
-
-
-  .test { 
-  }
-
 
   .sound-box {
       background-color: white;
       width: 400px;
       height: auto;
-      margin: 9rem auto;
+      padding-bottom: 1rem;
+      font-size: .75rem;
       box-shadow: 2px 2px 5px silver;
+      float: right;
+      margin-top: 2.05rem;
+  }
+
+  .audio-controls {
+      padding-top: 2rem;
   }
 
   .transcript {
-      width: 300px;
-      margin: 2rem auto;
-      text-align: start;
+      width: 75%;
+      margin: 1rem auto;
   }
-
-  .audio-container {
-    /* border: 1px solid green; */
-    width: 400px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    float: right;
-    margin-top: -240rem;
-    height: auto;
-    margin-right: 5rem;
-    
-   
-  }
-  
