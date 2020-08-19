@@ -62,11 +62,10 @@
   
   #search-icon-top {
     margin-top: 1rem;
-    
   }
   
   #search-icon-bottom {
-    margin-top:3rem;
+    margin-top: 3rem;
   }
   
   .search-error {
@@ -78,4 +77,14 @@
     margin-top: .5rem;
   }
   
+ 
+@media only screen and (min-width: 1500px) {
+  #search-icon-top {
+    margin-top: 1.05rem;
+  }
   
+  #search-icon-bottom {
+    margin-top: 3.075rem;
+  }
+    
+}

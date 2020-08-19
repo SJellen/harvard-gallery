@@ -17,7 +17,6 @@
       margin: 2rem;
       margin-left: 7.5rem;
       box-shadow: 2px 2px 5px silver;
-   
   }
 
   .sound-box {
@@ -38,4 +37,37 @@
   .transcript {
       width: 75%;
       margin: 1rem auto;
+  }
+
+  @media only screen and (min-width: 1500px) {
+    .audio-image {
+        margin-left: 17.5rem;
+        
+    }
+    
+  }
+
+  @media only screen and (max-width: 1315px) {
+    .audio-image {
+        margin-left: 2rem;
+    }
+  }
+
+  @media only screen and (max-width: 1204px) {
+    .sound-box {
+       margin: 0 auto;
+       margin-top: 1rem;
+       margin-bottom: 10rem;
+       float: none;
+    }
+    .audio-box {
+        margin: 0 auto;
+    }
+    .audio-image {
+       width: 75%;
+       height: auto;
+    }
+    .section-title {
+    padding-bottom: 2.5rem;
+    }
   }

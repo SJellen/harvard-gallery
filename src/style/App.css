@@ -1,6 +1,9 @@
 .App {
   text-align: center;
+  font-family: 'Open Sans', sans-serif;
 }
+
+
 
 
 .header {
@@ -14,7 +17,7 @@
 }
 
 nav {
-  margin-top: -5.15rem;
+  margin-top: -5.5rem;
   margin-right: 20.5rem;
   z-index: 99;
   position: relative;
@@ -23,6 +26,8 @@ nav {
   background-color: rgba(128, 128, 128, .7);
   width: 700px;
 }
+
+
 
 
 
@@ -86,7 +91,7 @@ a:hover {
   justify-content: flex-end;
   margin-right: 2.5rem;
   color: black;
-  
+  font-family: 'Merriweather', serif;
 }
 
 .section-title {
@@ -94,6 +99,7 @@ a:hover {
   display: flex;
   margin-left: 7.5rem;
  font-size: 2rem;
+ font-family: 'Merriweather', serif;
 }
 
 #home, #video, #description {
@@ -119,4 +125,68 @@ a:hover {
 .logo:hover {
   box-shadow: 3px 0px .5px .5px rgba(255, 172, 65, 1);
   transition: 1s ease-in;
+}
+
+
+
+@media only screen and (min-width: 1500px) {
+  .header {
+    width: 100%;
+    margin-left: -10%;
+  }
+    body {
+      max-width: 80%;
+      margin: 0 auto;
+    }
+    .section-title {
+      margin-left: 2rem;
+    }
+
+    .logo {
+      margin-left: -250px;
+    }
+
+    
+}
+
+@media only screen and (max-width: 1315px) {
+  a {
+      margin-left: -2rem;
+  }
+  nav {
+    width: 600px;
+  }
+  .lastAnchor {
+    margin-right: -5rem;
+  }
+}
+
+@media only screen and (max-width: 1204px) {
+  .title {
+    margin-right: 1rem;
+  }
+}
+
+@media only screen and (max-width: 1104px) {
+  nav {
+    width: 100%;
+    background-color: #f4f1ea;
+    border-bottom: 1px solid rgb(169, 166, 166);
+  }
+
+  a {
+    color: rgb(29, 29, 29);
+    font-weight: 700;
+    font-family: 'Merriweather', serif;
+  }
+
+  .section-title {
+    margin-left: 5rem;
+
+  }
+
+  .close-icon {
+    color: rgb(29, 29, 29); 
+  }
+  
 }
