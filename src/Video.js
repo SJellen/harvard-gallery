@@ -24,7 +24,8 @@ function Video() {
  } 
 
     useEffect(() => {
-            fetchVideo()   
+            fetchVideo()  
+            // eslint-disable-next-line react-hooks/exhaustive-deps 
         }, [])
 
 
@@ -41,6 +42,7 @@ function Video() {
                 
                 
                     <div key={video.videoid} className="video-container">
+                    
                     <iframe 
                     src={`https://player.vimeo.com/video/${video.primaryurl.replace("https://vimeo.com/", "")}?title=0&byline=0&portrait=0`}  frameBorder="0" 
                     allow="autoplay; fullscreen" 

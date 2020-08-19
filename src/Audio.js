@@ -27,7 +27,7 @@ function Audio() {
             
         })  
          .catch(error => console.log(error))
-         setIsLoading(false)
+         
 
  } 
 
@@ -36,7 +36,8 @@ function Audio() {
 
  useEffect(() => {
     fetchAudio()
-    
+    setIsLoading(false)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
 }, [])
 
 
@@ -49,7 +50,7 @@ function Audio() {
      
                <div className="audio-container">
 
-                    {   
+                    {   !isLoading ?
                 
                     audio.map(i => (
 
@@ -65,7 +66,7 @@ function Audio() {
                         <p className="transcript">{i.sound.description}</p> 
                     </div>
                     </div>           
-                ) ) 
+                ) )  : <h1>Loading....</h1>
                             }
                </div>
         

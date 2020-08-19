@@ -27,7 +27,8 @@ function Gallery() {
         } 
 
         useEffect(() => {
-                fetchImages()   
+                fetchImages() 
+                // eslint-disable-next-line react-hooks/exhaustive-deps  
             }, [])
 
         function decrementPage() {
