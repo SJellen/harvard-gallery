@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import './style/Video.css'
-import Skeleton from '@material-ui/lab/Skeleton';
 
 
 const apiKEY = process.env.REACT_APP_HARVARD_GALLERY
@@ -55,12 +54,7 @@ function Video() {
                         <p>{video.description}</p>
                     </div>
                     </div>
-            )) : videos.map((video) => (
-                        
-                        
-                        <Skeleton variant="rect" width={500} height={300} key={video.videoid}/>
-                        
-                    )) 
+            )) : <h1>Loading....</h1>
             
             }
 

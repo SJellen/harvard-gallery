@@ -1,6 +1,5 @@
 import React, { useState, useEffect} from 'react'
 import Button from '@material-ui/core/Button';
-import Skeleton from '@material-ui/lab/Skeleton';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import SearchIcon from '@material-ui/icons/Search';
@@ -83,7 +82,7 @@ function Gallery() {
             return (
 
                 <div className="gallery" id="home">
-                <h2 className="section-title">Image Viewer</h2>
+                <h2 className="section-title">Museum Image Viewer</h2>
                 <div className="button-box" id="button-box-top">
                     {page === 0 ? 
                         <Button variant="contained" disabled onClick={decrementPage}>
@@ -131,12 +130,7 @@ function Gallery() {
                         <div key={image.fileid}>
                             <img src={image.baseimageurl} alt="art piece" className="gallery-image"/>
                         </div>   
-                    )) : images.map((image) => (
-                        
-                        
-                        <Skeleton variant="rect" width={175} height={200} key={image.fileid}/>
-                        
-                    )) 
+                    )) : <h1>Loading....</h1>
                     
                     }
                 </div>

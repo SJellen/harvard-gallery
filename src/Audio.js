@@ -45,7 +45,7 @@ function Audio() {
     return (
 
         <div className="audio" id="description">
-        <h2 className="section-title">Audio Descriptions</h2>
+        <h2 className="section-title">Unique Piece Audio Descriptions</h2>
         <div className="audio-box">
      
                <div className="audio-container">
