@@ -12,6 +12,7 @@
     flex-wrap: wrap;
     margin: 4rem auto 0 auto;
     justify-content: space-around;
+    border-radius: 5px;
   }
   
   .gallery-image {

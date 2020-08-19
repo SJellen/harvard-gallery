@@ -10,7 +10,7 @@ import Audio from './Audio'
 function App() {
   return (
     <div className="App">
-      <h1>Harvard Museum Art Gallery</h1>
+      <h1>Harvard Art Museum Explorer</h1>
       <Gallery />
       <Video />
       <Audio />

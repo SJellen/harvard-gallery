@@ -7,7 +7,7 @@
     flex-wrap: wrap;
     margin: 4rem auto 4rem auto;
     justify-content: space-evenly;
-   
+    border-radius: 5px;
   }
 
   iframe {
