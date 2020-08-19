@@ -81,8 +81,8 @@ function Gallery() {
   
             return (
 
-                <div className="gallery">
-                <h2 className="section-title">Havard Art Images</h2>
+                <div className="gallery" id="home">
+                <h2 className="section-title">Image Viewer</h2>
                 <div className="button-box" id="button-box-top">
                     {page === 0 ? 
                         <Button variant="contained" disabled onClick={decrementPage}>

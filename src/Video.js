@@ -32,8 +32,8 @@ function Video() {
      
 
     return (
-        <div className="video">
-        <h2 className="section-title">Harvard Art Videos</h2>
+        <div className="video" id="video">
+        <h2 className="section-title">Museum Video Collection</h2>
        
         <div className="video-box">
         {   !isLoading ?
