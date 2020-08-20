@@ -249,7 +249,6 @@ a:hover {
   }
 
   .firstAnchor {
-   
     margin-top: 3rem;
   }
 
@@ -328,5 +327,22 @@ a:hover {
 @media only screen and (max-width: 411px) {
   .section-title {
     width: 90%;
+  }
+  nav {
+    background: #304352;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right bottom, #d7d2cc, #304352);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right bottom, #d7d2cc, #304352); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  }
+}
+
+
+@media only screen and (max-width: 375px) {
+  nav {
+    width: 100%;
+    border-bottom-left-radius: 15px;
+  }
+  nav > a {
+    width: 100%;
   }
 }

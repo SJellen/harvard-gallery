@@ -99,5 +99,10 @@
   .gallery-image {
     width: 80%;
     margin-bottom: 1rem;
+    margin-left: -1rem;
+  }
+
+  input::placeholder {
+    text-align: left;
   }
 }

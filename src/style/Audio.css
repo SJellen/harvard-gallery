@@ -89,6 +89,7 @@
     }
     .audio-box {
         width: 90vw;
+        margin-left: -1rem;
       }
 
       .sound-box {
