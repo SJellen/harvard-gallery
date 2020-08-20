@@ -80,3 +80,33 @@
         width: 75%;
       }
   }
+
+  @media only screen and (max-width: 500px) {
+
+    .App {
+        width: 100vw;
+        overflow-x: hidden;
+    }
+    .audio-box {
+        width: 90vw;
+      }
+
+      .sound-box {
+          margin-bottom: 4rem;
+      }
+  }
+
+  @media only screen and (max-width: 411px) {
+    .sound-box {
+        width: 90%;
+    }
+    audio {
+      width: 90%;
+    }
+
+    .audio-image {
+        width: 90%;
+        height: auto;
+        margin: 0 auto;
+    }
+  }

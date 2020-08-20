@@ -5,7 +5,7 @@
     height: auto;
     display: flex;
     flex-wrap: wrap;
-    margin: 4rem auto 4rem auto;
+    margin: 2rem auto 4rem auto;
     justify-content: space-evenly;
     border-radius: 5px;
   }
@@ -38,7 +38,8 @@
 
   @media only screen and (max-width: 600px) {
     .video-container {
-      width: 75%;
+      width: 80%;
+      margin-top: 1rem;
     }
     iframe {
       width: 100%;
@@ -47,6 +48,16 @@
     .video-word-box {
       width: 90%;
     }
+
+    .video-box {
+      padding-top: 4rem
+    }
   }
 
+
+  @media only screen and (max-width: 500px) {
+    .video-box {
+        width: 90vw;
+      }
+  }
   
