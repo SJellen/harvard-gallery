@@ -36,6 +36,17 @@
     margin: 3rem auto;
   }
 
-  
+  @media only screen and (max-width: 600px) {
+    .video-container {
+      width: 75%;
+    }
+    iframe {
+      width: 100%;
+      padding: 1rem 0;
+    }
+    .video-word-box {
+      width: 90%;
+    }
+  }
 
   

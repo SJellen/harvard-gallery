@@ -190,3 +190,36 @@ a:hover {
   }
   
 }
+
+@media only screen and (max-width: 700px) {
+  .section-title {
+    justify-content: center;
+    margin-left: 0;
+  }
+
+  .title {
+    font-size: 1.75rem;
+  }
+
+  nav {
+    margin-top: -5rem
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .menu-icon {
+    left: 1rem;
+  }
+  .close-icon {
+    left: 1rem;
+  }
+  a {
+    padding: 2rem 1.5rem;
+  }
+
+  .section-title {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

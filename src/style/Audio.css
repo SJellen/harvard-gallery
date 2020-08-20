@@ -71,3 +71,12 @@
     padding-bottom: 2.5rem;
     }
   }
+
+  @media only screen and (max-width: 600px) {
+      .sound-box {
+          width: 75%;
+      }
+      audio {
+        width: 75%;
+      }
+  }
