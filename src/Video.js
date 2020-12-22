@@ -1,18 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import './style/Video.css'
 
-
 const apiKEY = process.env.REACT_APP_HARVARD_GALLERY
-
 
 function Video() {
 
     const [videos, setVideos] = useState([])
     const [isLoading, setIsLoading] = useState(true)
-  
-
     const APIlink = `https://api.harvardartmuseums.org/video/?apikey=${apiKEY}&size=100&`
-
 
     const fetchVideo = async () => {
         await fetch(APIlink)
@@ -27,10 +22,6 @@ function Video() {
             // eslint-disable-next-line react-hooks/exhaustive-deps 
         }, [])
 
-
-       
-     
-
     return (
         <div className="video" id="video">
         <h2 className="section-title">Museum Video Collection</h2>
@@ -38,29 +29,22 @@ function Video() {
         <div className="video-box">
         {   !isLoading ?
             videos.map((video) => (
-                
-                
                     <div key={video.videoid} className="video-container">
-                    
-                    <iframe 
-                    src={`https://player.vimeo.com/video/${video.primaryurl.replace("https://vimeo.com/", "")}?title=0&byline=0&portrait=0`}  frameBorder="0" 
-                    allow="autoplay; fullscreen" 
-                    allowFullScreen
-                    title={video.description}
-                    className="iframe"
-                    >
-                    </iframe>
+                        <iframe 
+                        src={`https://player.vimeo.com/video/${video.primaryurl.replace("https://vimeo.com/", "")}?title=0&byline=0&portrait=0`}  frameBorder="0" 
+                        allow="autoplay; fullscreen" 
+                        allowFullScreen
+                        title={video.description}
+                        className="iframe"
+                        >
+                        </iframe>
                     <div className="video-word-box">
                         <p>{video.description}</p>
                     </div>
                     </div>
             )) : <h1>Loading....</h1>
-            
             }
-
-
         </div>
-
         </div>
     )
 }

@@ -14,7 +14,6 @@ function Gallery() {
         const [page, setPage] = useState(0)
         const [isValid, setValid] = useState(true)
         const [temp, setTemp] = useState(page)
-
         const APIlink = `https://api.harvardartmuseums.org/image?apikey=${apiKEY}&page=${page}&size=100`
 
         const fetchImages = async () => {
@@ -50,10 +49,6 @@ function Gallery() {
             }        
         }
 
-
-        
-
-
         function handleSearch(event) {
             
             let newPage = parseInt(event.target.value) -1
@@ -66,8 +61,7 @@ function Gallery() {
                 setValid(false)
                 document.getElementById('input-box-top').value = ''
                 document.getElementById('input-box-bottom').value = ''
-            }
-            
+            }    
         }
 
         function handleClick() {
@@ -75,7 +69,6 @@ function Gallery() {
             fetchImages()
             document.getElementById('input-box-top').value = ''
             document.getElementById('input-box-bottom').value = ''
-
         }
 
   
@@ -92,8 +85,7 @@ function Gallery() {
                             <ArrowBackIosIcon />
                     </Button>
                     }
-                                
-                                
+                                            
                     <span className="current-page">Page: {page + 1}/ 3700</span>
 
                     {page >= 3699 ? 
@@ -105,9 +97,7 @@ function Gallery() {
                             <ArrowForwardIosIcon />
                     </Button>
                     }
-                    </div>
-                                
-                                
+                    </div>            
                
                    <input 
                        className="input-box"
@@ -123,8 +113,6 @@ function Gallery() {
                     <SearchIcon className="search-icon" id="search-icon-top"  onClick={handleClick}/>
                    <p className="search-error" id="search-error-top">{isValid ? '' : "Please enter number under 3700"} </p>
               
-                                
-
                 <div className="image-box">
                         {!isLoading ? images.map(image => (
                         <div key={image.fileid}>
@@ -149,10 +137,7 @@ function Gallery() {
                     <SearchIcon className="search-icon" id="search-icon-bottom"  onClick={handleClick}/>
                     <p className="search-error" id="search-error-bottom">{isValid ? '' : "Please enter number under 3700"} </p>       
                                 
-                    
-
                 <div className="button-box" id="button-box-bottom">
-
                     {page === 0 ? 
                         <Button variant="contained" disabled onClick={decrementPage}>
                             
@@ -161,7 +146,6 @@ function Gallery() {
                             <ArrowBackIosIcon />
                     </Button>
                     }
-                    
                     <span className="current-page">Page: {page + 1} / 3700</span>
 
                     {page >= 3699 ? 
@@ -173,12 +157,7 @@ function Gallery() {
                             <ArrowForwardIosIcon />
                     </Button>
                     }
-    
                     </div>
-                    
-                  
-                
-                
                 </div>
             )
 

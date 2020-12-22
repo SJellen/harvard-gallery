@@ -2,10 +2,7 @@ import React, { useState, useEffect } from 'react'
 import './style/Audio.css'
 import audioObject from './AudioObject'
 
-
-
 const apiKEY = process.env.REACT_APP_HARVARD_GALLERY
-
 
 function Audio() {
 
@@ -13,8 +10,6 @@ function Audio() {
     const [isLoading, setIsLoading] = useState(true)
     const [audio, setAudio] = useState([])
    
-    
-
     const fetchAudio = async () => {
         await fetch(APIlink)
          .then(res => res.json())
@@ -23,37 +18,25 @@ function Audio() {
             let newArr = audioArr.map((x,i) => {
                 return {sound: x, image: audioObject[i]}
             })
-            setAudio(newArr)
-            
+            setAudio(newArr)       
         })  
          .catch(error => console.log(error))
-         
-
  } 
 
  
-
-
  useEffect(() => {
     fetchAudio()
     setIsLoading(false)
     // eslint-disable-next-line react-hooks/exhaustive-deps
 }, [])
 
-
-   
     return (
-
         <div className="audio" id="description">
         <h2 className="section-title">Unique Piece Audio Descriptions</h2>
         <div className="audio-box">
-     
                <div className="audio-container">
-
                     {   !isLoading ?
-                
                     audio.map(i => (
-
                     <div key={i.sound.fileid}>
                     <img src={i.image.baseimageurl} className="audio-image" key={i.image.id} alt="art piece"/>
                     <div className="sound-box">
@@ -69,13 +52,10 @@ function Audio() {
                 ) )  : <h1>Loading....</h1>
                             }
                </div>
-        
         </div>     
         </div>
     )
 }
-
-
 
 
 export default Audio

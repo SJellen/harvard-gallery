@@ -17,11 +17,8 @@ function App() {
       <i className="material-icons menu-icon" 
              onClick={toggle}
              style={{ display: show ? "block" : "none"}}
-             
              >menu_icon</i>
-       
         <nav style={{display: show ? "none" : "block"}}>
-          
           <i className="material-icons close-icon"
               onClick={toggle}
               style={{display: show ? "none" : "block"}}
@@ -31,7 +28,6 @@ function App() {
             <a href="#description" className="lastAnchor">Audio Descriptions</a> 
         </nav>
     </div>
-      
       <Gallery />
       <Video />
       <Audio />
