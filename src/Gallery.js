@@ -1,82 +1,25 @@
-import React, { useState, useEffect} from 'react'
+import React, {useContext} from 'react'
 import Button from '@material-ui/core/Button';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import SearchIcon from '@material-ui/icons/Search';
 import './style/Gallery.css'
+import {Context} from './Context'
 
-const apiKEY = process.env.REACT_APP_HARVARD_GALLERY
 
 function Gallery() {
 
-        const [images, setImages] = useState([])
-        const [isLoading, setIsLoading] = useState(true)
-        const [page, setPage] = useState(0)
-        const [isValid, setValid] = useState(true)
-        const [temp, setTemp] = useState(page)
-        const APIlink = `https://api.harvardartmuseums.org/image?apikey=${apiKEY}&page=${page}&size=100`
+    const {page, decrementPage, incrementPage, handleSearch, handleImageClick, handleClick, isValid, isLoading, images, currentImage } = useContext(Context)
 
-        const fetchImages = async () => {
-               await fetch(APIlink)
-                .then(res => res.json())
-                .then(data => setImages(data.records))
-                .catch(error => console.log(error))
-                setIsLoading(false)
-        } 
-
-        useEffect(() => {
-                fetchImages() 
-                  // eslint-disable-next-line react-hooks/exhaustive-deps
-            }, [])
-
-        function decrementPage() {
-          
-            if (page >= 1 ) {
-                setValid(true)
-                setIsLoading(true)
-                fetchImages()
-                setPage(prevPage => prevPage - 1) 
-            }
-        }
-
-        function incrementPage() {
-            if (page <= 3699) {
-                setValid(true)
-                setIsLoading(true)
-                fetchImages()
-                setPage(prevPage => prevPage + 1) 
-                
-            }        
-        }
-
-        function handleSearch(event) {
-            
-            let newPage = parseInt(event.target.value) -1
-            
-            if (newPage <= 3700) {
-                setValid(true)
-                setPage(newPage)
-            } else {
-                setPage(temp)
-                setValid(false)
-                document.getElementById('input-box-top').value = ''
-                document.getElementById('input-box-bottom').value = ''
-            }    
-        }
-
-        function handleClick() {
-            setTemp(page)
-            fetchImages()
-            document.getElementById('input-box-top').value = ''
-            document.getElementById('input-box-bottom').value = ''
-        }
-
+  
   
             return (
 
                 <div className="gallery" id="home">
-                <h2 className="section-title">Museum Image Viewer</h2>
-                <div className="button-box" id="button-box-top">
+                <h2 className="section-title" style={{display: currentImage !== undefined ? 'none' : ''}}>Museum Image Viewer</h2>
+
+                <div style={{display: currentImage !== undefined ? 'none' : ''}}>
+                    <div className="button-box" id="button-box-top" >
                     {page === 0 ? 
                         <Button variant="contained" disabled onClick={decrementPage}>
                             
@@ -112,18 +55,21 @@ function Gallery() {
                    />
                     <SearchIcon className="search-icon" id="search-icon-top"  onClick={handleClick}/>
                    <p className="search-error" id="search-error-top">{isValid ? '' : "Please enter number under 3700"} </p>
+                </div>
+                
               
                 <div className="image-box">
                         {!isLoading ? images.map(image => (
-                        <div key={image.fileid}>
-                            <img src={image.baseimageurl} alt="art piece" className="gallery-image"/>
+                        <div key={image.fileid} >
+                            <img src={image.baseimageurl} alt="art piece" className={currentImage && currentImage?.src === image.baseimageurl ? "gallery-imageCurrent" : currentImage && currentImage?.src !== image.baseimageurl ? "gallery-none" : 'gallery-image'} onClick={(e) => handleImageClick(e)} />
                         </div>   
                     )) : <h1>Loading....</h1>
                     
                     }
                 </div>
-                   
-                 <input 
+
+                <div style={{display: currentImage !== undefined ? 'none' : ''}}>
+                    <input 
                        className="input-box"
                        id="input-box-bottom"
                        type="number" 
@@ -158,6 +104,9 @@ function Gallery() {
                     </Button>
                     }
                     </div>
+                </div>
+                   
+                 
                 </div>
             )
 

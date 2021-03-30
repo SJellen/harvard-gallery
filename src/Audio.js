@@ -1,10 +1,13 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import './style/Audio.css'
 import audioObject from './AudioObject'
+import {Context} from './Context'
 
 const apiKEY = process.env.REACT_APP_HARVARD_GALLERY
 
 function Audio() {
+
+    const {currentImage} = useContext(Context)
 
     const APIlink = `https://api.harvardartmuseums.org/audio?apikey=${apiKEY}`
     const [isLoading, setIsLoading] = useState(true)
@@ -31,7 +34,7 @@ function Audio() {
 }, [])
 
     return (
-        <div className="audio" id="description">
+        <div className="audio" id="description" style={{display: currentImage !== undefined ? 'none' : ''}}>
         <h2 className="section-title">Unique Piece Audio Descriptions</h2>
         <div className="audio-box">
                <div className="audio-container">

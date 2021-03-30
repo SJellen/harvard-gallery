@@ -11,7 +11,7 @@
     display: flex;
     flex-wrap: wrap;
     margin: 4rem auto 0 auto;
-    justify-content: space-around;
+    justify-content: center;
     border-radius: 5px;
   }
   
@@ -19,6 +19,23 @@
     width: 175px;
     height: auto;
     padding: 5px;
+  }
+
+  .gallery-image:hover {
+    cursor: pointer;
+  }
+
+  .gallery-imageCurrent {
+    width: 90%;
+    height: auto;
+  }
+
+  .gallery-imageCurrent:hover {
+    cursor: pointer;
+  }
+
+  .gallery-none {
+    display: none;
   }
   
   .button-box {
@@ -38,6 +55,11 @@
   .input-box {
     width: 145px;
     height: 20px;
+  }
+
+  .input-box::placeholder {
+    padding-left: 5px;
+    text-align: left;
   }
   
   #input-box-top {

@@ -1,9 +1,14 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import './style/Video.css'
+import {Context} from './Context'
 
 const apiKEY = process.env.REACT_APP_HARVARD_GALLERY
 
 function Video() {
+
+    const {currentImage} = useContext(Context)
+
+    
 
     const [videos, setVideos] = useState([])
     const [isLoading, setIsLoading] = useState(true)
@@ -23,7 +28,7 @@ function Video() {
         }, [])
 
     return (
-        <div className="video" id="video">
+        <div className="video" id="video" style={{display: currentImage !== undefined ? 'none' : ''}}>
         <h2 className="section-title">Museum Video Collection</h2>
        
         <div className="video-box">

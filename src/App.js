@@ -1,18 +1,27 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import './style/App.css';
 import Gallery from './Gallery'
 import Video from './Video'
 import Audio from './Audio'
 import Footer from './Footer'
 import useToggler from './useToggler'
+import {Context} from './Context'
+
+
 
 
 function App() {
   const [show, toggle] = useToggler(true)
 
+  const {currentImage} = useContext(Context)
+
+
+  
+
   return (
+    
     <div className="App">
-    <div className="header">
+    <div className="header" style={{display: currentImage !== undefined ? 'none' : ''}}>
     <h1 className="title">Harvard Art Museum Explorer</h1>
       <i className="material-icons menu-icon" 
              onClick={toggle}
