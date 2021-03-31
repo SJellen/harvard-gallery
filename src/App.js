@@ -20,7 +20,7 @@ function App() {
 
   return (
     
-    <div className="App">
+    <div className="App" >
     <div className="header" style={{display: currentImage !== undefined ? 'none' : ''}}>
     <h1 className="title">Harvard Art Museum Explorer</h1>
       <i className="material-icons menu-icon" 

@@ -14,7 +14,7 @@ function ContextProvider({ children}) {
         const [page, setPage] = useState(0)
         const [isValid, setValid] = useState(true)
         const [temp, setTemp] = useState(page)
-        const APIlink = `https://api.harvardartmuseums.org/image?apikey=${apiKEY}&page=${page}&size=100`
+        const APIlink = `https://api.harvardartmuseums.org/image?apikey=${apiKEY}&page=${page}&size=25`
 
         const [currentImage, setCurrentImage] = useState()
 
@@ -47,7 +47,7 @@ function ContextProvider({ children}) {
         }
 
         function incrementPage() {
-            if (page <= 3699) {
+            if (page <= 14799) {
                 setValid(true)
                 setIsLoading(true)
                 setPage(prevPage => prevPage + 1) 
@@ -61,7 +61,7 @@ function ContextProvider({ children}) {
             
             let newPage = parseInt(event.target.value) -1
             
-            if (newPage <= 3700) {
+            if (newPage <= 14800) {
                 setValid(true)
                 setPage(newPage)
             } else {
