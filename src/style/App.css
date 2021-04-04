@@ -2,6 +2,17 @@
   text-align: center;
   font-family: 'Open Sans', sans-serif;
 }
+.iconNav-container {
+  position: fixed;
+  left: 0;
+  z-index: 99;
+  width: 300px;
+  height: 80px;
+  margin: 0rem auto 0rem auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .header {
   width: 100%;
@@ -12,6 +23,9 @@
   background-color: rgba(244, 241, 234, .9);
   backdrop-filter: blur(5px);
   border-bottom: 1px solid rgb(169, 166, 166);
+}
+.nav-container {
+  visibility: hidden;
 }
 
 nav {
@@ -52,6 +66,7 @@ a:hover {
   top: 1rem;
   left: 2rem;
   width: 40px;
+  visibility: hidden;
 }
 
 .menu-icon:hover {
@@ -149,6 +164,9 @@ a:hover {
   .lastAnchor {
     margin-right: -5rem;
   }
+  .iconNav-container {
+    justify-content: space-evenly;
+  }
 }
 
 @media only screen and (max-width: 1204px) {
@@ -180,6 +198,19 @@ a:hover {
   
 }
 
+@media only screen and (max-width: 825px) {
+  .title {
+    font-size: 1.75rem;
+  }
+  .iconNav-container {
+    width: 220px;
+    justify-content: space-around;
+    margin-left: 2rem;
+  }
+}
+
+
+
 @media only screen and (max-width: 700px) {
   .section-title {
     justify-content: center;
@@ -187,7 +218,14 @@ a:hover {
   }
 
   .title {
-    font-size: 1.75rem;
+    font-size: 1.25rem;
+    margin-top: 1.75rem;
+  }
+
+  .iconNav-container {
+    width: 225px;
+    justify-content: space-evenly;
+    margin-left: .5rem;
   }
 
   nav {
@@ -206,6 +244,11 @@ a:hover {
     padding: 2rem 1.5rem;
   }
 
+  .title {
+    font-size: 1rem;
+    margin-top: 2rem;
+  }
+
   .section-title {
     width: 80%;
     margin-left: auto;
@@ -214,17 +257,31 @@ a:hover {
 }
 
 @media only screen and (max-width: 500px) {
+  .iconNav-container {
+    visibility: hidden;
+  }
+
+  .nav-container {
+    visibility: visible;
+    width: 100%;
+    height: fit-content;
+  }
+
+  .menu-icon {
+    visibility: visible;
+  }
   .title {
     font-size: 1.5rem;
-    margin-top: .5rem;
-    margin-right: -.25rem;
-    width: 240px;
+    margin-top: 1.5rem;
+    margin-right: 1rem;
+    width: 80%;
     float: right; 
     text-align: center;
   }
 
   nav {
     background-color: rgba(121, 122, 126, .95);
+    backdrop-filter: blur(20px);
     width: 250px;
     height: 200px;
     top: 5rem;
@@ -309,9 +366,23 @@ a:hover {
   .close-icon {
     top: 6rem;
   }
+
  
  
 }
+
+@media only screen and (max-width: 455px) {
+  .title {
+    font-size: 1.25rem;
+    margin-top: 1.25rem;
+    margin-right: 1rem;
+    width: 80%;
+    float: right; 
+    text-align: center;
+  }
+}
+
+
 
 @media only screen and (max-width: 411px) {
   .section-title {
@@ -333,5 +404,14 @@ a:hover {
   }
   nav > a {
     width: 100%;
+  }
+
+  .title {
+    font-size: 1.25rem;
+    margin-top: 1.25rem;
+    margin-right: 0;
+    width: 80%;
+    float: right; 
+    text-align: center;
   }
 }

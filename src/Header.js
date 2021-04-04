@@ -4,6 +4,7 @@ import useToggler from './useToggler'
 import {Context} from './Context'
 
 
+
 export default function Header() {
     const [show, toggle] = useToggler(true)
 
@@ -16,7 +17,7 @@ export default function Header() {
              onClick={toggle}
              style={{ display: show ? "block" : "none"}}
              >menu_icon</i>
-            <nav style={{display: show ? "none" : "block"}}>
+            <nav style={{display: show ? "none" : "block"}} className="nav-container">
             <i className="material-icons close-icon"
               onClick={toggle}
               style={{display: show ? "none" : "block"}}
