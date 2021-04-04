@@ -4,7 +4,7 @@ import {Context} from './Context'
 
 const apiKEY = process.env.REACT_APP_HARVARD_GALLERY
 
-function Video() {
+export default function Video() {
 
     const {currentImage} = useContext(Context)
 
@@ -55,4 +55,3 @@ function Video() {
 }
 
 
-export default Video

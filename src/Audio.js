@@ -5,7 +5,7 @@ import {Context} from './Context'
 
 const apiKEY = process.env.REACT_APP_HARVARD_GALLERY
 
-function Audio() {
+export default function Audio() {
 
     const {currentImage} = useContext(Context)
 
@@ -61,5 +61,5 @@ function Audio() {
 }
 
 
-export default Audio
+
 

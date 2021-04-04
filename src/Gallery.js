@@ -7,7 +7,7 @@ import './style/Gallery.css'
 import {Context} from './Context'
 
 
-function Gallery() {
+export default function Gallery() {
 
     const {page, decrementPage, incrementPage, handleSearch, handleImageClick, handleClick, isValid, isLoading, images, currentImage } = useContext(Context)
 
@@ -74,4 +74,3 @@ function Gallery() {
 }
 
 
-export default Gallery

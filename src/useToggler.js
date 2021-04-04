@@ -1,6 +1,6 @@
 import {useState} from 'react'
 
-function useToggler(defaultOnValue = false) {
+export default function useToggler(defaultOnValue = false) {
     const [isToggledOn, setIsToggledOn] = useState(defaultOnValue)
 
     function toggle() {
@@ -9,4 +9,3 @@ function useToggler(defaultOnValue = false) {
     return [isToggledOn, toggle]
 }
 
-export default useToggler

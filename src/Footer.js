@@ -1,7 +1,7 @@
 import React, {useContext } from 'react'
 import {Context} from './Context'
 
-function Footer() {
+export default function Footer() {
 
     const {currentImage} = useContext(Context)
 
@@ -19,4 +19,3 @@ function Footer() {
 
 
 
-export default Footer
