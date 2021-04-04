@@ -68,15 +68,16 @@ function ContextProvider({ children}) {
                 setPage(temp)
                 setValid(false)
                 document.getElementById('input-box-top').value = ''
-                document.getElementById('input-box-bottom').value = ''
+                
             }    
         }
 
         function handleClick() {
+            
             setTemp(page)
             fetchImages()
             document.getElementById('input-box-top').value = ''
-            document.getElementById('input-box-bottom').value = ''
+            
         }
 
         function handleImageClick(e) {
