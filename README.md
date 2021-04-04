@@ -11,9 +11,9 @@
 
 > Exploring the Harvard Art Museum API's Image, Video and Audio features.
 
-### 🏠 [Homepage](https://modest-albattani-0df9f4.netlify.app/)
+### 🏠 [Homepage](https://harvard-gallery.vercel.app/)
 
-### ✨ [Demo](https://modest-albattani-0df9f4.netlify.app/)
+### ✨ [Demo](https://harvard-gallery.vercel.app/)
 
 ## Install
 
