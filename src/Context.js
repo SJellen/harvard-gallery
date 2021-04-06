@@ -82,7 +82,10 @@ function ContextProvider({ children}) {
         }
 
         function handleImageClick(e) {
-            if (e.target !== currentImage) {
+            if (currentImage !== undefined) {
+                setCurrentImage()
+            }
+            else if (e.target !== currentImage) {
                 setCurrentImage(e.target)
             } else {
                 setCurrentImage()

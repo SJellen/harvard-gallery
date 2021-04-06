@@ -5,6 +5,7 @@ import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import SearchIcon from '@material-ui/icons/Search';
 import './style/Gallery.css'
 import {Context} from './Context'
+import Magnifier from "react-magnifier"
 
 
 export default function Gallery() {
@@ -61,7 +62,12 @@ export default function Gallery() {
                 <div className="image-box">
                         {!isLoading ? images.map(image => (
                         <div key={image.fileid} >
-                            <img src={image.baseimageurl} alt="art piece" className={currentImage && currentImage?.src === image.baseimageurl ? "gallery-imageCurrent" : currentImage && currentImage?.src !== image.baseimageurl ? "gallery-none" : 'gallery-image'} onClick={(e) => handleImageClick(e)} />
+                            {currentImage?.src !== image.baseimageurl ?
+                            <img src={image.baseimageurl} alt="art piece" className={currentImage && currentImage?.src === image.baseimageurl ? "gallery-imageCurrent" : currentImage && currentImage?.src !== image.baseimageurl ? "gallery-none" : 'gallery-image'} onClick={(e) => handleImageClick(e)} /> :
+                            <Magnifier src={image.baseimageurl} onClick={(e) => handleImageClick(e)} className={currentImage && currentImage?.src === image.baseimageurl ? "gallery-imageCurrent" : currentImage && currentImage?.src !== image.baseimageurl ? "gallery-none" : 'gallery-image'}/>
+                            }
+                            
+                            
                         </div>   
                     )) : <h1>Loading....</h1>
                     
