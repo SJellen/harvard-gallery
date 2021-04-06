@@ -1,0 +1,22 @@
+
+
+.closeHeader {
+    display: flex;
+    height: 5rem;
+    width: 100%;
+    position: absolute;
+    z-index: 99;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    
+}
+
+.closeIconHeader {
+    fill: black;
+    margin-right: 2rem;
+}
+
+.closeIconHeader:hover {
+    cursor: pointer;
+}

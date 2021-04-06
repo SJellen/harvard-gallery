@@ -43,7 +43,6 @@ function ContextProvider({ children}) {
                 setIsLoading(true)
                 setPage(prevPage => prevPage - 1) 
                 // fetchImages()
-                
             }
         }
 
@@ -52,9 +51,7 @@ function ContextProvider({ children}) {
                 setValid(true)
                 setIsLoading(true)
                 setPage(prevPage => prevPage + 1) 
-                // fetchImages()
-                
-                
+                // fetchImages()  
             }        
         }
 
@@ -68,17 +65,14 @@ function ContextProvider({ children}) {
             } else {
                 setPage(temp)
                 setValid(false)
-                document.getElementById('input-box-top').value = ''
-                
+                document.getElementById('input-box-top').value = ''   
             }    
         }
 
         function handleClick() {
-            
             setTemp(page)
             fetchImages()
             document.getElementById('input-box-top').value = ''
-            
         }
 
         function handleImageClick(e) {
@@ -90,8 +84,6 @@ function ContextProvider({ children}) {
             } else {
                 setCurrentImage()
             }
-            
-
         }
     
 
