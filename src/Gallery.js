@@ -22,10 +22,10 @@ export default function Gallery() {
                 <div style={{display: currentImage !== undefined ? 'none' : ''}}>
                     <div className="button-box" id="button-box-top" >
                     {page === 0 ? 
-                        <Button variant="contained" disabled onClick={decrementPage}>
+                        <Button variant="contained" disabled onClick={decrementPage} aria-label="back page">
                             
                     </Button> :
-                    <Button variant="contained" color="primary" onClick={decrementPage} >
+                    <Button variant="contained" color="primary" onClick={decrementPage}  aria-label="back page">
                             <ArrowBackIosIcon />
                     </Button>
                     }
@@ -33,11 +33,11 @@ export default function Gallery() {
                     <span className="current-page">{page + 1}/ 14800</span>
 
                     {page >= 14799 ? 
-                        <Button variant="contained" disabled onClick={incrementPage}>
+                        <Button variant="contained" disabled onClick={incrementPage} aria-label="forward page">
                             
                     </Button> : 
                     
-                    <Button variant="contained" color="primary" onClick={incrementPage}>
+                    <Button variant="contained" color="primary" onClick={incrementPage} aria-label="forward page">
                             <ArrowForwardIosIcon />
                     </Button>
                     }
