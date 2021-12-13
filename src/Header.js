@@ -4,11 +4,9 @@ import './style/Header.css'
 import useToggler from './useToggler'
 import {Context} from './Context'
 
-
-
 export default function Header() {
-    const [show, toggle] = useToggler(true)
 
+    const [show, toggle] = useToggler(true)
     const {currentImage, handleImageClick} = useContext(Context)
 
     return (
@@ -25,14 +23,13 @@ export default function Header() {
                         onClick={toggle}
                         style={{display: show ? "none" : "block"}}
                         >close_icon</i>
-                    <a href="#home" className="firstAnchor">Image Viewer</a>
-                    <a href="#video">Video Collection</a>
-                    <a href="#description" className="lastAnchor">Audio Descriptions</a> 
+                    <a href="#home" className="firstAnchor"  onClick={() => toggle()}>Image Viewer</a>
+                    <a href="#video"  onClick={() => toggle()}>Video Collection</a>
+                    <a href="#description" className="lastAnchor"  onClick={() => toggle()}>Audio Descriptions</a> 
                     </nav>
                 </div> :
                  <div className="closeHeader">
                     <svg className="closeIconHeader" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" onClick={(e) => handleImageClick(e)}
-                    
                     ><path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"/></svg>
                 </div>
         } 

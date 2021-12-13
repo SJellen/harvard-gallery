@@ -7,9 +7,6 @@ const apiKEY = process.env.REACT_APP_HARVARD_GALLERY
 export default function Video() {
 
     const {currentImage} = useContext(Context)
-
-    
-
     const [videos, setVideos] = useState([])
     const [isLoading, setIsLoading] = useState(true)
     const APIlink = `https://api.harvardartmuseums.org/video/?apikey=${apiKEY}&size=100&`

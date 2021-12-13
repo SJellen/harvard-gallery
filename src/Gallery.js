@@ -7,13 +7,10 @@ import './style/Gallery.css'
 import {Context} from './Context'
 import Magnifier from "react-magnifier"
 
-
 export default function Gallery() {
 
     const {page, decrementPage, incrementPage, handleSearch, handleImageClick, handleClick, isValid, isLoading, images, currentImage } = useContext(Context)
 
-  
-  
             return (
 
                 <div className="gallery" id="home">
@@ -28,21 +25,16 @@ export default function Gallery() {
                     <Button variant="contained" color="primary" onClick={decrementPage}  aria-label="back page">
                             <ArrowBackIosIcon />
                     </Button>
-                    }
-                                            
+                    }                       
                     <span className="current-page">{page + 1}/ 14800</span>
-
                     {page >= 14799 ? 
-                        <Button variant="contained" disabled onClick={incrementPage} aria-label="forward page">
-                            
-                    </Button> : 
-                    
-                    <Button variant="contained" color="primary" onClick={incrementPage} aria-label="forward page">
+                        <Button variant="contained" disabled onClick={incrementPage} aria-label="forward page">                        
+                        </Button> : 
+                        <Button variant="contained" color="primary" onClick={incrementPage} aria-label="forward page">
                             <ArrowForwardIosIcon />
-                    </Button>
+                        </Button>
                     }
                     </div>            
-               
                    <input 
                        className="input-box"
                        id="input-box-top"
@@ -57,26 +49,19 @@ export default function Gallery() {
                     <SearchIcon className="search-icon" id="search-icon-top"  onClick={handleClick}/>
                    <p className="search-error" id="search-error-top">{isValid ? '' : "Please enter number under 14800"} </p>
                 </div>
-                
-              
                 <div className="image-box">
                         {!isLoading ? images.map(image => (
                         <div key={image.fileid} >
                             {currentImage?.src !== image.baseimageurl ?
                             <img src={image.baseimageurl} alt="art piece" className={currentImage && currentImage?.src === image.baseimageurl ? "gallery-imageCurrent" : currentImage && currentImage?.src !== image.baseimageurl ? "gallery-none" : 'gallery-image'} onClick={(e) => handleImageClick(e)} /> :
                             <Magnifier src={image.baseimageurl} onClick={(e) => handleImageClick(e)} className={currentImage && currentImage?.src === image.baseimageurl ? "gallery-imageCurrent" : currentImage && currentImage?.src !== image.baseimageurl ? "gallery-none" : 'gallery-image'}/>
-                            }
-                            
-                            
+                            }  
                         </div>   
-                    )) : <h1>Loading....</h1>
-                    
+                    )) : <h1>Loading....</h1>                  
                     }
                 </div>
-
                 </div>
             )
-
 }
 
 

@@ -8,7 +8,6 @@ const apiKEY = process.env.REACT_APP_HARVARD_GALLERY
 export default function Audio() {
 
     const {currentImage} = useContext(Context)
-
     const APIlink = `https://api.harvardartmuseums.org/audio?apikey=${apiKEY}`
     const [isLoading, setIsLoading] = useState(true)
     const [audio, setAudio] = useState([])
@@ -26,7 +25,6 @@ export default function Audio() {
          .catch(error => console.log(error))
  } 
 
- 
  useEffect(() => {
     fetchAudio()
     setIsLoading(false)
