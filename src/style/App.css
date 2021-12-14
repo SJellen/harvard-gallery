@@ -2,17 +2,6 @@
   text-align: center;
   font-family: 'Open Sans', sans-serif;
 }
-.iconNav-container {
-  position: fixed;
-  left: 0;
-  z-index: 99;
-  width: 300px;
-  height: 80px;
-  margin: 0rem auto 0rem auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 
 .header {
   width: 100%;
@@ -141,9 +130,6 @@ a:hover {
   .lastAnchor {
     margin-right: -5rem;
   }
-  .iconNav-container {
-    justify-content: space-evenly;
-  }
 }
 
 @media only screen and (max-width: 1204px) {
@@ -179,11 +165,6 @@ a:hover {
   .title {
     font-size: 1.75rem;
   }
-  .iconNav-container {
-    width: 220px;
-    justify-content: space-around;
-    margin-left: 2rem;
-  }
 }
 
 
@@ -197,12 +178,6 @@ a:hover {
   .title {
     font-size: 1.25rem;
     margin-top: 1.75rem;
-  }
-
-  .iconNav-container {
-    width: 225px;
-    justify-content: space-evenly;
-    margin-left: .5rem;
   }
 
   nav {
@@ -234,9 +209,6 @@ a:hover {
 }
 
 @media only screen and (max-width: 500px) {
-  .iconNav-container {
-    visibility: hidden;
-  }
 
   .nav-container {
     visibility: visible;
