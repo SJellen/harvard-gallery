@@ -19,13 +19,14 @@ export default function Header() {
                        style={{ display: show ? "block" : "none"}}
                         >menu_icon</i>
                     <nav style={{display: show ? "none" : "block"}} className="nav-container">
-                    <i className="material-icons close-icon"
-                        onClick={toggle}
-                        style={{display: show ? "none" : "block"}}
-                        >close_icon</i>
-                    <a href="#home" className="firstAnchor"  onClick={() => toggle()}>Image Viewer</a>
-                    <a href="#video"  onClick={() => toggle()}>Video Collection</a>
-                    <a href="#description" className="lastAnchor"  onClick={() => toggle()}>Audio Descriptions</a> 
+                        <i className="material-icons close-icon"
+                            onClick={toggle}
+                            style={{display: show ? "none" : "block"}}
+                            >close_icon</i>
+                        <a href="#home" className="firstAnchor"  onClick={() => toggle()}>Image Viewer</a>
+                        <a href="#video"  onClick={() => toggle()}>Video Collection</a>
+                        <a href="#description" className="lastAnchor"  onClick={() => toggle()}>Audio Descriptions</a> 
+                        <div className='blade'></div>
                     </nav>
                 </div> :
                  <div className="closeHeader">
