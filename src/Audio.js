@@ -39,7 +39,7 @@ export default function Audio() {
                     {   !isLoading ?
                     audio.map(i => (
                     <div key={i.sound.fileid}>
-                    <img src={i.image.baseimageurl} className="audio-image" key={i.image.id} alt="art piece"/>
+                    <img src={i.image?.baseimageurl} className="audio-image" key={i.image?.id} alt="art piece"/>
                     <div className="sound-box">
                         <div  className="audio-controls">
                             <audio controls>

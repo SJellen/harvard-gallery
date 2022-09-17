@@ -1,20 +1,27 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import './style/App.css';
-import Gallery from './Gallery'
-import Video from './Video'
-import Audio from './Audio'
 import Footer from './Footer'
 import Header from './Header'
 import IconNav from './IconNav'
+
+const Gallery = React.lazy(() => import('./Gallery'));
+const Video = React.lazy(() => import('./Video'));
+const Audio = React.lazy(() => import('./Audio'));
 
 export default function App() {
     return (
       <div className="App" >
         <IconNav />
         <Header />
-        <Gallery />
-        <Video />
-        <Audio />
+        <Suspense fallback={<div>Loading...</div>}>
+          <Gallery />
+        </Suspense>
+        <Suspense fallback={<div>Loading...</div>}>
+          <Video />
+        </Suspense>
+        <Suspense fallback={<div>Loading...</div>}>
+          <Audio />
+        </Suspense>
         <Footer />
       </div>
   );
